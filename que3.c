@@ -1,18 +1,27 @@
-// print the ASCII vaule of user entered char in decimal,hex,octal format and also print the char for user entered ASCII value
+//check whether number is -ve or +ve
 
 
 #include<stdio.h>
 int main()
 {
 
-    char ch;
-    printf("Enter character");
-    scanf("%c",&ch);
+int num;
+printf("enter the number:");
+scanf("%d", &num);
 
-    printf("Enter the ASCII vaule in decimal=%d\n",ch);
-    printf("character in hex format=%x\n",ch);
-    printf("character in octal format=%o\n",ch);
-
-    return 0;
-
+if(num > 0)
+{
+    printf("%d the number is positive\n",num);
 }
+else if (num < 0)
+{
+    printf("%d the number is negative\n",num);
+}
+  else{
+    printf("the number is zero\n");
+}
+ return 0;
+}
+
+
+
