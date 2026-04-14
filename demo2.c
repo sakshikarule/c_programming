@@ -1,45 +1,73 @@
 #include<stdio.h>
 /*
-   Datatypes:
-	- Builtin
-		- primary datatypes
-			- int        =>%d  =>Size 4 Byte
+	Logical Oprator
+	-Logical Opr output gets in True or False
+	- True =  1 [ Othere than 0 every value is true  ( +ve / -ve )]
+	- False = 0
+
+	- Logical OR  => ||
+		A  ||  B       Y
+		0      0       0 False
+		0      1       1 True
+		1      0       1 True
+		1      1       1 True
+		- In Logical OR if 1st operand is True then 2nd operand is not checked
+		Or
+		- In Logical OR if 1st operand is False then 2nd operand is checked
 
 
-	printf() - library function to print on console
-		syntax:
-			printf("format string", arg1, arg2, ...);
-		format string - string containing text to be printed and format specifiers
-		format specifiers - placeholders for variables to be printed
-			%d  - for integer
-			%c  - for character
-			%f  - for float
-			%lf - for double
-
-			%d => decimal
-			%o => Ocatal
-			%x => Hexadecimal
 */
-
 int main()
 {
-	int num1 = 65;
-	printf("Decimal : %d \n",num1); //65
-	printf("octal  :  %o  \n",num1); //101
-    printf("Hexadecimal : %x ",num1); //41
+	int n1=0 ,n2=0,res;
 
-	// octal and hexadecimal number start with 0 => octal number
+  	res=  n1 || n2;
+	printf("%d || %d = %d \n",n1,n2,res); //0
 
-	int num2=0101; //if anu number start with 0 => octal number
-	printf("num : %o \n",num2); //101
-	printf("num : %d \n",num2); //65
-	printf("num : %x \n",num2); //41
+	n1= 0, n2 = 10;
+	res= n1 || n2;
+	printf("%d || %d = %d \n",n1,n2,res); //1
 
-	int num3 =0x41; //if any number start 0x => hexadecimal number
-	printf("num3 : %x \n",num3); //41
-	printf("num3 : %d \n",num3); //65
-	printf("num3 : %o \n",num3); //101
+	
+	n1= 10, n2 = 0;
+	res= n1 || n2;
+	printf("%d  || %d = %d \n",n1,n2,res); // 1
+
+	n1= 20, n2 = 10;
+	res= n1 || n2 ;
+	printf("%d  || %d = %d \n",n1,n2,res); // 1
+
+
+
+
+    n1= 0 , n2 = 10;
+	res= n1-- || ++n2;
+	//   0--  || ++10
+	//   0(F) || 11(T)  => true
+
+	printf("%d  || %d = %d \n",n1,n2,res); // 1
+
+
+
+
+	n1= 1 , n2 = 0;
+	res= n1 || ++n2 ;
+	//   1  || ++0
+	//   t  || XXX
+	//   T  ---------------> True
+	printf("%d  || %d = %d \n",n1,n2,res); // 1
+	//      1       0    1
+
+	n1= 1 , n2 = 0;
+	res= -- n1 || ++n2 ;
+	//   0 || ++0
+	//   f  || 1(T)
+	//   f  ||  t  ------------> True
+	printf("%d  || %d = %d \n",n1,n2,res); // 1
+    //       0  || 1 => 1
+
+
 
 	return 0;
-
 }
+
